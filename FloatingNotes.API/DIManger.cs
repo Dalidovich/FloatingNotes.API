@@ -24,7 +24,7 @@ namespace FloatingNotes.API
         public static void AddODataProperty(this WebApplicationBuilder webApplicationBuilder)
         {
             var odataBuilder = new ODataConventionModelBuilder();
-            odataBuilder.EntitySet<FloatingNote>("Comment");
+            odataBuilder.EntitySet<FloatingNote>("FloatingNote");
 
             webApplicationBuilder.Services.AddControllers().AddOData(opt =>
             {
