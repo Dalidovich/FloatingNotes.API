@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\FloatingNotes.API.DAL\FloatingNotes.API.DAL.csproj" />
+    <ProjectReference Include="..\FloatingNotes.API.Domain\FloatingNotes.API.Domain.csproj" />
+  </ItemGroup>
+
+</Project>
