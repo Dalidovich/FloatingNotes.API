@@ -14,6 +14,12 @@
         GetAvailableNumber = 7,
         SetAvailableNumber = 8,
 
+        ConnectionFloatingNoteCreate = 9,
+        ConnectionFloatingNoteUpdate = 10,
+        ConnectionFloatingNoteDelete = 11,
+        ConnectionFloatingNoteRead = 12,
+        ConnectionFloatingNoteExist = 13,
+
         OK = 200,
         OKNoContent = 204,
         InternalServerError = 500,

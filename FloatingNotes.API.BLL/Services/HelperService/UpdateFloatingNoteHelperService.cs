@@ -1,7 +1,7 @@
 ﻿using FloatingNotes.API.Domain.DTO;
 using FloatingNotes.API.Domain.Entities;
 
-namespace FloatingNotes.API.BLL.Services
+namespace FloatingNotes.API.BLL.Services.HelperService
 {
     public static class UpdateFloatingNoteHelperService
     {

@@ -1,5 +1,6 @@
 ﻿using System.Linq.Expressions;
 using FloatingNotes.API.BLL.Interfaces;
+using FloatingNotes.API.BLL.Services.HelperService;
 using FloatingNotes.API.DAL.Repositories.Interafaces;
 using FloatingNotes.API.Domain.DTO;
 using FloatingNotes.API.Domain.Entities;
@@ -32,6 +33,20 @@ namespace FloatingNotes.API.BLL.Services
 
         public async Task<BaseResponse<bool>> DeleteFloatingNote(Guid deleteId)
         {
+            var entity = await _floatingNoteRepositories
+                .GetAll()
+                .Where(x => x.Id == deleteId)
+                .SingleOrDefaultAsync();
+
+            if (entity == null)
+            {
+                return new StandartResponse<bool>()
+                {
+                    Data = false,
+                    InnerStatusCode = InnerStatusCode.EntityNotFound
+                };
+            }
+
             var response = await _floatingNoteRepositories.Delete(deleteId);
 
             return new StandartResponse<bool>()
@@ -55,17 +70,6 @@ namespace FloatingNotes.API.BLL.Services
             return new StandartResponse<FloatingNote>()
             {
                 Data = entity,
-                InnerStatusCode = InnerStatusCode.FloatingNoteRead
-            };
-        }
-
-        public BaseResponse<IQueryable<FloatingNote>> GetFloatingNoteOData()
-        {
-            var contents = _floatingNoteRepositories.GetAll();
-
-            return new StandartResponse<IQueryable<FloatingNote>>()
-            {
-                Data = contents,
                 InnerStatusCode = InnerStatusCode.FloatingNoteRead
             };
         }

@@ -17,6 +17,7 @@ namespace FloatingNotes.API.Domain.Entities
         public DateTime CreateDate { get; set; }
         public FloatingNoteStatus Status { get; set; }
         public bool IsIncludedInResponseProcessing { get; set; }
+        public List<ConnectionFloatingNote> ConnectedFloatingNotes { get; set; } = new List<ConnectionFloatingNote>();
 
         public FloatingNote()
         {

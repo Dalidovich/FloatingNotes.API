@@ -20,7 +20,6 @@ namespace FloatingNotes.API.Controllers
         {
             if (floatingNoteDTO == null)
             {
-
                 return BadRequest();
             }
             var resourse = await _floatingNoteService.CreateFloatingNote(floatingNoteDTO);
@@ -52,6 +51,10 @@ namespace FloatingNotes.API.Controllers
             {
                 return Ok(resourse.Data);
             }
+            if (resourse.InnerStatusCode == Domain.Enums.InnerStatusCode.EntityNotFound)
+            {
+                return NoContent();
+            }
 
             return StatusCode(500);
         }
@@ -63,6 +66,10 @@ namespace FloatingNotes.API.Controllers
             if (resourse.InnerStatusCode == Domain.Enums.InnerStatusCode.FloatingNoteUpdate)
             {
                 return Ok(resourse.Data);
+            }
+            if (resourse.InnerStatusCode == Domain.Enums.InnerStatusCode.EntityNotFound)
+            {
+                return NoContent();
             }
 
             return StatusCode(500);

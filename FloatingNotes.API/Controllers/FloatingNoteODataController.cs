@@ -6,20 +6,27 @@ using Microsoft.AspNetCore.OData.Routing.Controllers;
 
 namespace FloatingNotes.API.Controllers
 {
-    public class FloatingNoteODataController : ODataController
+    public class BaseODataController : ODataController
     {
-        private readonly IFloatingNoteService _floatingNoteService;
+        private readonly IODataService _ODataService;
 
-        public FloatingNoteODataController(IFloatingNoteService floatingNoteService)
+        public BaseODataController(IODataService ODataService)
         {
-            _floatingNoteService = floatingNoteService;
+            _ODataService = ODataService;
         }
 
         [HttpGet("odata/FloatingNote")]
         [EnableQuery]
-        public IQueryable<FloatingNote> GetComment()
+        public IQueryable<FloatingNote> GetFloatingNote()
         {
-            return _floatingNoteService.GetFloatingNoteOData().Data;
+            return _ODataService.GetFloatingNoteOData().Data;
+        }
+
+        [HttpGet("odata/ConnectionFloatingNote")]
+        [EnableQuery]
+        public IQueryable<ConnectionFloatingNote> GetConnectionFloatingNote()
+        {
+            return _ODataService.GetConnectionFloatingNoteOData().Data;
         }
     }
 }

@@ -1,7 +1,7 @@
 ﻿using FloatingNotes.API.Domain.Entities;
 using FloatingNotes.API.Domain.Enums;
 
-namespace FloatingNotes.API.BLL.Services
+namespace FloatingNotes.API.BLL.Services.HelperService
 {
     public class UpdateFloatingNoteBuilder
     {

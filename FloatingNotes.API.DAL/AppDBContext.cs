@@ -7,6 +7,7 @@ namespace FloatingNotes.API.DAL
     public class AppDBContext : DbContext
     {
         public DbSet<FloatingNote> FloatingNotes { get; set; }
+        public DbSet<ConnectionFloatingNote> ConnectionFloatingNotes { get; set; }
 
         public void UpdateDatabase()
         {

@@ -12,6 +12,5 @@ namespace FloatingNotes.API.BLL.Interfaces
         public Task<BaseResponse<FloatingNote>> CreateFloatingNote(CreateFloatingNoteDTO floatingNote);
         public Task<BaseResponse<FloatingNote>> UpdateFloatingNote(UserUpdateFloatingNoteDTO updateFloatingNoteDTO);
         public Task<BaseResponse<bool>> DeleteFloatingNote(Guid deleteId);
-        public BaseResponse<IQueryable<FloatingNote>> GetFloatingNoteOData();
     }
 }

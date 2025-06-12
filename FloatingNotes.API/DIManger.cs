@@ -14,17 +14,21 @@ namespace FloatingNotes.API
         public static void AddRepositores(this WebApplicationBuilder webApplicationBuilder)
         {
             webApplicationBuilder.Services.AddScoped<IFloatingNoteRepositories, FloatingNoteRepositories>();
+            webApplicationBuilder.Services.AddScoped<IConnectionFloatingNoteRepositories, ConnectionFloatingNoteRepositories>();
         }
 
         public static void AddServices(this WebApplicationBuilder webApplicationBuilder)
         {
             webApplicationBuilder.Services.AddScoped<IFloatingNoteService, FloatingNoteService>();
+            webApplicationBuilder.Services.AddScoped<IConnectionFloatingNoteService, ConnectionFloatingNoteService>();
+            webApplicationBuilder.Services.AddScoped<IODataService, ODataService>();
         }
 
         public static void AddODataProperty(this WebApplicationBuilder webApplicationBuilder)
         {
             var odataBuilder = new ODataConventionModelBuilder();
             odataBuilder.EntitySet<FloatingNote>("FloatingNote");
+            odataBuilder.EntitySet<ConnectionFloatingNote>("ConnectionFloatingNote");
 
             webApplicationBuilder.Services.AddControllers().AddOData(opt =>
             {

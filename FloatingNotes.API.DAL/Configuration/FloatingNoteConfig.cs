@@ -54,7 +54,7 @@ namespace FloatingNotes.API.DAL.Configuration
 
             builder.Property(e => e.IsIncludedInResponseProcessing)
                    .HasColumnType(EntityDataTypes.Boolean)
-                  .HasColumnName("is_included_in_response_processing");
+                   .HasColumnName("is_included_in_response_processing");
 
         }
     }
